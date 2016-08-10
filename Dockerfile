@@ -14,6 +14,8 @@ ADD requirements.txt /tmp/python
 WORKDIR /tmp/opencv/Ubuntu
 RUN echo 'deb http://archive.ubuntu.com/ubuntu trusty multiverse' >> /etc/apt/sources.list && apt-get update
 RUN ./opencv_latest.sh
+RUN echo 'export PYTHONPATH=${PYTHONPATH:-/app/.heroku/opencv/lib/python3.5/site-packages}' > /app/.profile.d/opencv.sh
+RUN echo 'export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/.heroku/opencv/lib/pkgconfig' >> /app/.profile.d/opencv.sh
 
 # Install leptonica for tesseract
 WORKDIR /tmp/leptonica
@@ -25,7 +27,6 @@ RUN ./install_tesseract.sh
 
 # Prepare Python environment
 WORKDIR /tmp/python
-RUN echo 'export PYTHONPATH=${PYTHONPATH:-/app/.heroku/opencv/lib/python2.7/site-packages}' > /app/.profile.d/opencv.sh
 RUN /app/.heroku/python/bin/pip install -r requirements.txt
 
 # Clean up
