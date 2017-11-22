@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Variables
-OCR_VERSION=3.04.01
-DATA_VERSION=3.04.00
+OCR_VERSION=3.05.01
+DATA_VERSION=3.05.01
 OCR_NAME=tesseract-${OCR_VERSION}
 DATA_NAME=tessdata-${DATA_VERSION}
 OCR_PREFIX=/app/.heroku/tesseract

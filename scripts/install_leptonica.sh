@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Variables
-VERSION=1.73
+VERSION=1.74.4
 NAME=leptonica-${VERSION}
 PREFIX=/app/.heroku/leptonica
 PROFILE=/app/.profile.d/leptonica.sh
